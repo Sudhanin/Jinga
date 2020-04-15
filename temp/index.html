@@ -1,0 +1,44 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Post</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'fonts/style.css' %}">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+            <form method="POST" class="p-5 bg-white" action="{% url 'publish' %}">
+ {% csrf_token %}
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="fname">Title</label>
+                  <input type="text" name="title" class="form-control rounded-0">
+                </div>
+              </div>
+              <div class="row form-group">             
+                <div class="col-md-12">
+                  <label class="text-black" for="subject"> Add Image </label> 
+                  <input type="file"  accept="image/*"  name="img_loc" class="form-control rounded-0" placeholder="Upload images from only one path">
+                </div>
+              </div>
+              
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Content</label> 
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0" placeholder="Expose here"></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Publish" class="btn btn-primary mr-2 mb-2">
+                </div>
+              </div>
+            </form>
+  </body>
+</html>
